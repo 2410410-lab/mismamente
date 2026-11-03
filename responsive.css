@@ -1,0 +1,106 @@
+/* ==========================================================================
+   ADAPTATIVIDAD RESPONSIVA (Móviles, Tabletas y Pantallas Grandes)
+   ========================================================================== */
+
+/* TABLETAS (Hasta 768px) */
+@media (max-width: 768px) {
+  .brand-title {
+    font-size: 2.3rem;
+  }
+
+  .brand-slogan {
+    font-size: 1rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .communities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .personas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn-hero-test {
+    font-size: 1.15rem;
+    padding: 12px 28px;
+  }
+
+  .animal-frame-container {
+    padding: 16px 10px;
+  }
+
+  .test-container-card, .communities-wrapper, .result-card-container {
+    padding: 18px;
+  }
+}
+
+/* MÓVILES PEQUEÑOS (Hasta 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px 8px;
+  }
+
+  .header-container {
+    padding: 18px 12px;
+    border-radius: 20px;
+  }
+
+  .main-nav {
+    gap: 6px;
+  }
+
+  .nav-btn {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    flex: 1;
+    text-align: center;
+  }
+
+  .welcome-banner {
+    border-radius: 16px;
+    padding: 12px;
+  }
+
+  .welcome-title {
+    font-size: 1.15rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .test-controls {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .test-controls button {
+    width: 100%;
+  }
+
+  .filter-buttons-group {
+    justify-content: center;
+  }
+
+  .filter-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+/* PREFERENCIA DE MOVIMIENTO REDUCIDO */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

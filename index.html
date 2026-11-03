@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mismamente | Tu personalidad, tu comunidad</title>
+
+  <meta name="description" content="Plataforma de integración escolar y sentido de pertenencia para estudiantes de preparatoria.">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+
+
+  <!-- ENCABEZADO Y NAVEGACIÓN PRINCIPAL -->
+
+  <header class="header-container" role="banner">
+
+    <div class="logo-box">
+
+      <h1 class="brand-title">Mismamente</h1>
+
+      <p class="brand-slogan">Tu personalidad, tu comunidad</p>
+
+    </div>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+
+      <button class="nav-btn active" id="btn-nav-inicio" onclick="app.navigateTo('inicio')">INICIO</button>
+
+      <button class="nav-btn" id="btn-nav-test" onclick="app.navigateTo('test')">TEST</button>
+
+      <button class="nav-btn" id="btn-nav-comunidades" onclick="app.navigateTo('comunidades')">COMUNIDADES</button>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- BANNER DE BIENVENIDA -->
+
+  <section class="welcome-banner" aria-label="Mensaje de bienvenida">
+
+    <h2 class="welcome-title">¡Encuentra tu lugar!</h2>
+
+    <p class="welcome-subtitle">Describe tu personalidad y conecta con estudiantes que comparten tus intereses.</p>
+
+  </section>
+
+
+
+  <!-- CONTENEDOR PRINCIPAL / SECCIONES SPA -->
+
+  <main id="main-content" class="app-viewport">
+
+
+
+    <!-- 1. SECCIÓN INICIO -->
+
+    <section id="sec-inicio" class="page-section active" aria-labelledby="heading-inicio">
+
+      <h2 id="heading-inicio" class="sr-only">Página de Inicio</h2>
+
+
+
+      <!-- BOTÓN CTA DESTACADO -->
+
+      <div class="hero-cta-wrapper">
+
+        <button class="btn-hero-test" onclick="app.navigateTo('test')">
+
+          Comenzar test <span class="arrow-icon" aria-hidden="true">➔</span>
+
+        </button>
+
+      </div>
+
+
+
+      <!-- GALERÍA / MARCO DE ANIMALES -->
+
+      <div class="animal-frame-container" aria-label="Galería de familias animales Mismamente">
+
+        <div class="animal-carousel-wrapper">
+
+          <button class="carousel-control prev" onclick="app.prevAnimalCard()" aria-label="Animal anterior">‹</button>
+
+          <div class="animal-showcase" id="animal-showcase-target">
+
+            <!-- Inyectado por JS -->
+
+          </div>
+
+          <button class="carousel-control next" onclick="app.nextAnimalCard()" aria-label="Siguiente animal">›</button>
+
+        </div>
+
+        <p class="carousel-caption">Conoce a las 8 familias animales que integran nuestra comunidad escolar</p>
+
+      </div>
+
+
+
+      <!-- GRID DE 4 TARJETAS INFORMATIVAS -->
+
+      <div class="features-grid">
+
+        <article class="feature-card">
+
+          <div class="feature-icon folder-icon" aria-hidden="true">📁</div>
+
+          <h3>Test de personalidad</h3>
+
+          <p>Contesta preguntas sencillas sobre tus gustos y formas de relacionarte.</p>
+
+          <button class="btn-card-action" onclick="app.navigateTo('test')">Ir al Test</button>
+
+        </article>
+
+
+
+        <article class="feature-card">
+
+          <div class="feature-icon paw-icon" aria-hidden="true">🐾</div>
+
+          <h3>Tu resultado</h3>
+
+          <p>Descubre la familia animal que representa tu perfil y tus fortalezas.</p>
+
+          <button class="btn-card-action" onclick="app.showLastResultOrAlert()">Ver mi resultado</button>
+
+        </article>
+
+
+
+        <article class="feature-card">
+
+          <div class="feature-icon heart-icon" aria-hidden="true">🤝</div>
+
+          <h3>Personas como tú</h3>
+
+          <p>Encuentra coincidencias de intereses compartidos en el instituto.</p>
+
+          <button class="btn-card-action" onclick="app.scrollToSection('sec-personas')">Explorar perfiles</button>
+
+        </article>
+
+
+
+        <article class="feature-card">
+
+          <div class="feature-icon trophy-icon" aria-hidden="true">🏆</div>
+
+          <h3>Top comunidades</h3>
+
+          <p>Música, arte, videojuegos, deportes, cine y mucho más por descubrir.</p>
+
+          <button class="btn-card-action" onclick="app.navigateTo('comunidades')">Ver comunidades</button>
+
+        </article>
+
+      </div>
+
+
+
+      <!-- FRANJA DE LEMA -->
+
+      <div class="motto-strip">
+
+        <p>Mismamente. Tu escuela, tu gente, tu lugar.</p>
+
+      </div>
+
+
+
+      <!-- TABLÓN DE RETOS SEMANALES -->
+
+      <section class="home-block-card" id="sec-retos-semanales" aria-labelledby="retos-title">
+
+        <h3 id="retos-title" class="block-title">⚡ Retos Semanales Anónimos (Tablón de Coincidencias)</h3>
+
+        <p class="block-desc">Dinámicas voluntarias para reconocer a integrantes de familias afines dentro del instituto de forma segura y divertida.</p>
+
+        <div id="retos-container" class="retos-grid">
+
+          <!-- Inyectado por JS -->
+
+        </div>
+
+      </section>
+
+
+
+      <!-- SECCIÓN PERSONAS COMO TÚ -->
+
+      <section class="home-block-card" id="sec-personas" aria-labelledby="personas-title">
+
+        <h3 id="personas-title" class="block-title">👥 Personas como tú (Demostración de Afinidad)</h3>
+
+        <p class="block-desc"><span class="badge-demo">Ejemplo Ilustrativo</span> Descubre cómo se visualizan las afinidades de intereses entre estudiantes sin revelar identidades reales.</p>
+
+        <div id="personas-container" class="personas-grid">
+
+          <!-- Inyectado por JS -->
+
+        </div>
+
+      </section>
+
+
+
+      <!-- VISTA PREVIA RESULTADOS Y COMUNIDADES POPULARES -->
+
+      <section class="home-block-card" aria-labelledby="populares-title">
+
+        <h3 id="populares-title" class="block-title">🌟 Resultados y comunidades populares</h3>
+
+        <p class="block-desc">Aquí aparecerá el resumen de tus actividades, sugerencias de convivencia y las agrupaciones con mayor dinamismo en la preparatoria.</p>
+
+        <div class="popular-summary-box">
+
+          <div class="summary-pill">🎨 Arte y Expresión (Alta participación)</div>
+
+          <div class="summary-pill">🎮 Videojuegos & Gaming (Muy activa)</div>
+
+          <div class="summary-pill">🎵 Club de Música y Canto (Proximos eventos)</div>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+
+    <!-- 2. SECCIÓN TEST DE PERSONALIDAD -->
+
+    <section id="sec-test" class="page-section" aria-labelledby="heading-test">
+
+      <div class="test-container-card">
+
+        <h2 id="heading-test" class="test-header-title">Cuestionario de Afinidad y Personalidad</h2>
+
+        <p class="test-disclaimer">
+
+          <strong>Nota de convivencia:</strong> Este test es una actividad recreativa de autoconocimiento para facilitar la integración escolar. No constituye un diagnóstico psicológico ni evalúa tus capacidades.
+
+        </p>
+
+
+
+<!-- BARRA DE PROGRESO -->
+        <div class="progress-bar-wrapper">
+          <div class="progress-info">
+            <span id="test-progress-text">Pregunta 1 de 32</span>
+            <span id="test-progress-percent">3%</span>
+          </div>
+          <div class="progress-track" role="progressbar" id="progress-bar-element" aria-valuenow="1" aria-valuemin="1" aria-valuemax="32">
+            <div class="progress-fill" id="progress-fill" style="width: 3%;"></div>
+          </div>
+        </div>
+        </div>
+
+
+
+        <!-- CONTENEDOR DE LA PREGUNTA ACTUAL -->
+
+        <div id="question-card-target" class="question-card">
+
+          <!-- Inyectado dinámicamente por JS -->
+
+        </div>
+
+
+
+        <!-- ALERTA DE VALIDACIÓN -->
+
+        <div id="test-validation-msg" class="validation-message" role="alert" aria-live="polite" hidden>
+
+          ⚠️ Por favor selecciona una opción antes de continuar.
+
+        </div>
+
+
+
+        <!-- CONTROLES DEL TEST -->
+
+        <div class="test-controls">
+
+          <button id="btn-test-prev" class="btn-secondary" onclick="testEngine.prevQuestion()">Anterior</button>
+
+          <button id="btn-test-restart" class="btn-text-danger" onclick="testEngine.restartTest()">Reiniciar</button>
+
+          <button id="btn-test-next" class="btn-primary" onclick="testEngine.nextQuestion()">Siguiente</button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- 3. SECCIÓN RESULTADOS -->
+
+    <section id="sec-resultados" class="page-section" aria-labelledby="heading-resultados">
+
+      <div id="result-display-target" class="result-card-container">
+
+        <!-- Inyectado por JS al terminar el test -->
+
+      </div>
+
+    </section>
+
+
+
+    <!-- 4. SECCIÓN COMUNIDADES -->
+
+    <section id="sec-comunidades" class="page-section" aria-labelledby="heading-comunidades">
+
+      <div class="communities-wrapper">
+
+        <div class="communities-header">
+
+          <h2 id="heading-comunidades" class="section-title">Comunidades Escolares</h2>
+
+          <p class="section-subtitle">Encuentra grupos de interés para integrarte y participar en actividades de la preparatoria.</p>
+
+        </div>
+
+
+
+        <!-- FILTROS Y BÚSQUEDA -->
+
+        <div class="search-filter-bar">
+
+          <div class="search-input-group">
+
+            <label for="comm-search-input" class="sr-only">Buscar comunidad</label>
+
+
+
+            <input type="text" id="comm-search-input" placeholder="Buscar por palabra clave, tema o interés..." oninput="communitiesEngine.handleSearch(this.value)">
+
+          </div>
+
+
+
+          <div class="filter-buttons-group" role="tablist" aria-label="Categorías de comunidades">
+
+            <button class="filter-btn active" onclick="communitiesEngine.filterByCategory('todas', this)">Todas</button>
+
+            <button class="filter-btn" onclick="communitiesEngine.filterByCategory('Música', this)">Música</button>
+
+            <button class="filter-btn" onclick="communitiesEngine.filterByCategory('Arte', this)">Arte</button>
+
+            <button class="filter-btn" onclick="communitiesEngine.filterByCategory('Videojuegos', this)">Videojuegos</button>
+
+            <button class="filter-btn" onclick="communitiesEngine.filterByCategory('Deportes', this)">Deportes</button>
+
+            <button class="filter-btn" onclick="communitiesEngine.filterByCategory('Cine', this)">Cine</button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- GRID DE TARJETAS DE COMUNIDADES -->
+
+        <div id="communities-grid-target" class="communities-grid">
+
+          <!-- Inyectado dinámicamente por JS -->
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+  </main>
+
+
+
+  <!-- MODAL DE DEMOSTRACIÓN DE CHAT DE COMUNIDAD -->
+
+  <div id="chat-modal" class="modal-backdrop" hidden aria-hidden="true" role="dialog" aria-labelledby="chat-modal-title">
+
+    <div class="modal-card">
+
+      <div class="modal-header">
+
+        <h3 id="chat-modal-title">Chat de Comunidad (Demostración UI)</h3>
+
+        <button class="modal-close-btn" onclick="communitiesEngine.closeChatModal()" aria-label="Cerrar modal">&times;</button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="chat-demo-badge">⚠️ Espacio de demostración local. No conectado a servidores en la Versión 1.</div>
+
+        <div class="chat-messages-box" id="chat-messages-container">
+
+          <!-- Mensajes de demostración inyectados por JS -->
+
+        </div>
+
+        <div class="chat-input-row">
+
+          <input type="text" id="chat-input-field" placeholder="Escribe un mensaje de prueba..." onkeypress="if(event.key==='Enter') communitiesEngine.sendDemoMessage()">
+
+          <button class="btn-primary" onclick="communitiesEngine.sendDemoMessage()">Enviar</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- MISMI BOT: CHAT BÁSICO LOCAL (SIN CONEXIÓN A INTERNET) -->
+  <section id="mismibot-panel" class="mismibot-panel" aria-label="Chat con MismiBot" hidden>
+    <div class="mismibot-header">
+      <div>
+        <strong>MismiBot ✨</strong>
+        <p>Tu guía de Mismamente</p>
+      </div>
+      <button type="button" id="mismibot-close" class="mismibot-close" aria-label="Cerrar chat">×</button>
+    </div>
+    <div id="mismibot-messages" class="mismibot-messages" aria-live="polite">
+      <div class="mismibot-message bot">¡Hola! Soy MismiBot 💗 Por ahora puedo responder preguntas básicas sobre las familias animales, el test y las comunidades. ¿Qué te gustaría saber?</div>
+    </div>
+    <form id="mismibot-form" class="mismibot-form">
+      <label class="mismibot-sr-only" for="mismibot-input">Escribe tu pregunta</label>
+      <input id="mismibot-input" type="text" maxlength="500" placeholder="Escribe tu pregunta..." autocomplete="off" required>
+      <button type="submit">Enviar</button>
+    </form>
+    <p class="mismibot-note">Versión inicial: respuestas locales, todavía sin IA externa.</p>
+  </section>
+  <button type="button" id="mismibot-toggle" class="mismibot-toggle" aria-expanded="false" aria-controls="mismibot-panel">
+    <span aria-hidden="true">💬</span> MismiBot
+  </button>
+
+  <!-- PIE DE PÁGINA -->
+
+  <footer class="footer-container">
+
+    <p><strong>Mismamente</strong> &copy; 2026. Proyecto Web de Integración y Convivencia Escolar.</p>
+
+    <p class="footer-subtext">Diseñado bajo estándares de accesibilidad e inclusión. Sin recolección de datos personales.</p>
+
+  </footer>
+
+
+
+  <!-- ARCHIVOS DE LÓGICA Y DATOS EN ORDEN DE DEPENDENCIA -->
+
+  <script src="js/data.js"></script>
+
+  <script src="js/test.js"></script>
+
+  <script src="js/communities.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/mismibot.js"></script>
+
+</body>
+
+</html> 
